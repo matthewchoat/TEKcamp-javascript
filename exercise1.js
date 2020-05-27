@@ -172,9 +172,9 @@ for (let i = 0; i < nums.length; i += 3) { //opens a for loop where i = 0 and it
 const foodArray = ['potatoes', 'tamales', 'lemon', 'strawberries', 'chocolate', 'pudding', { school: 'TEKcamp' }];
 //access the value of the last element of the array and set it to a variable called school.  print the school variable to the console.
 
-var last_item = foodArray[foodArray.length - 1];
+var last_item = foodArray[foodArray.length - 1]; //take the last item of an array as a variable
 
-console.log(last_item.school);
+console.log(last_item.school); //print last item in the list
 
 
 const adjectiveArray = ['salty', 'spicy', 'sour', 'sweet', 'rich', 'creamy', 'amazing'];
@@ -182,14 +182,14 @@ const adjectiveArray = ['salty', 'spicy', 'sour', 'sweet', 'rich', 'creamy', 'am
 // "for" loop that console.log()'s a sentence for each
 // corresponding value in the arrays. Add the word "is" or "are" depending on if the food is singular or plural. "Potatoes are salty", "Lemon is sour".
 
-for (let index = 0; index < foodArray.length; index++) {
-    if (foodArray[index].school) {
-        console.log(foodArray[index].school + ' is ' + adjectiveArray[index])
+for (let index = 0; index < foodArray.length; index++) { //for loop through the entire length of the array (doesn't matter which one they both have the same length)
+    if (foodArray[index].school) { // if statement to catch the "school" property
+        console.log(foodArray[index].school + ' is ' + adjectiveArray[index]) //output school 'is' adjective
 
-    } else if (foodArray[index].endsWith('s')) {
-        console.log(foodArray[index] + ' are ' + adjectiveArray[index])
-    } else {
-        console.log(foodArray[index] + ' is ' + adjectiveArray[index])
+    } else if (foodArray[index].endsWith('s')) { // else if to catch foodArray indexes that end in 's'.
+        console.log(foodArray[index] + ' are ' + adjectiveArray[index]) //output foodArray ' are ' adjective
+    } else { // else statement for remaining singular indexes
+        console.log(foodArray[index] + ' is ' + adjectiveArray[index]) //output foodArray ' is ' adjective
     }
 }
 
@@ -197,11 +197,11 @@ for (let index = 0; index < foodArray.length; index++) {
 
 /************************************************************* */
 // Bonus Assignment: Create 4 mathematical function expressions, add,subtract,multiply,divide.  put them in an array, and create a doMath() function that randomly does one of the 4 operations whenever it is run.  the doMath() function should print out what mathetmatical function was carried out.  The doMath() function should return the computed value of any operation performed.
-const operations = ["+", "-", "*", "/"];
+const operations = ["+", "-", "*", "/"]; //entered operators as strings
 
-function doMath() {
-    let expression = '2 ' + operations[Math.floor(Math.random() * Math.floor(3))] + ' 4'
-    console.log(expression + " = " + eval(expression));
+function doMath() { //define doMath function
+    let expression = '2 ' + operations[Math.floor(Math.random() * Math.floor(3))] + ' 4' //setup expression subbing in a random operator (operator still a non-functional string)
+    console.log(expression + " = " + eval(expression)); //output the original expression with operator and also output the 'eval' expression result.
 };
 
-doMath()
+doMath() //call doMath function
