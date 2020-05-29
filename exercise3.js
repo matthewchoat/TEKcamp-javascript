@@ -51,11 +51,11 @@ console.log(squareIt()) //console log the function
 
 //your code...
 
-let = longArray = [1, 3, 5, 7, 9, 1, 3, 5]
+let = longArray = [1, 3, 5, 7, 9, 1, 3, 5] //declaring longArray
 
-overThree = longArray => longArray > 3
+overThree = () => longArray.filter(i => i > 3) //my overThree function applies a filter to longArray to only include indexes above number 3
 
-console.log(longArray.filter(overThree)); //would like to get the filter function out of the console.log and into the function above but I guess it's good enough. It's late and I'm tired!
+console.log(overThree()); //call function
 
 
 
@@ -67,8 +67,8 @@ console.log(longArray.filter(overThree)); //would like to get the filter functio
 
 let = fiveArray = [5, 10, 15, 20, 25]
 
-let sumIt = fiveArray.reduce(function(a, b) {
-    return a + b;
+let sumIt = fiveArray.reduce(function(a, b) { //using the reduce function and pulling in a, b
+    return a + b; //returning the sum of a + b, which will give us the sum of the entire array
 }, 0); //zero is the initialValue - the value to use as the first arguement to the first call of the callback
 
 console.log(sumIt); // prints the sum of the array
@@ -84,11 +84,11 @@ console.log(sumIt); // prints the sum of the array
 
 //your code...
 
-let pairDNA = function(DNAstring) {
-    const toArray = DNAstring.split('')
-    return toArray.map(i => {
-        switch (i) {
-            case 'G':
+let pairDNA = function(DNAstring) { //creating a function to pair the DNA
+    const toArray = DNAstring.split('') //splitting the string input into an array
+    return toArray.map(i => { //mapping by i
+        switch (i) { //switch statement bringing in our mapped index value
+            case 'G': //create all cases for returning the correct pairs
                 return 'C'
                 break;
             case 'C':
@@ -113,16 +113,16 @@ console.log(pairDNA("GCTA"));
 const numbers = [2, 23, 1, 2, 1, 1, 1, 2, 2.5, 20, 200, 2000, , { k: 1 }, 20000, 19999, 1878, 140, 23, 4, "sk", true, true, "true-dat", "nice", "one", "two", "three", "3", "tea", []];
 
 
-var fnum = numbers.filter(num => !isNaN(num) && typeof num != 'boolean').map(nbr => Number(nbr));
-console.log(fnum);
-console.log(Math.max(...fnum))
+var fnum = numbers.filter(num => !isNaN(num) && typeof num != 'boolean').map(nbr => Number(nbr)); //create fnum function, filter the numbers, filter out anything that is not a number or is a boolean. Map the numbers.
+console.log(fnum); //log our fnum array
+console.log(Math.max(...fnum)) //determine the maximum value of fnum and flatten the array (using the spread "..." command explained in my bonus exercise below!)
 
 
 // 7.b -Write a function that sorts the given numbers array.  Allow the function to sort the array in descending order
 
 //function sortNums(numbers, desc = false) {
 //YOUR CODE 
-numbers.sort(function(a, b) { return b - a });
+fnum.sort(function(a, b) { return b - a }); //using the sort function combined with returning b - a which sorts the entire array in descending order
 
 
 
@@ -132,36 +132,37 @@ numbers.sort(function(a, b) { return b - a });
 
 const mapObj = new Map();
 const obj = { company: "TEKsystems" }
-mapObj.set(obj, "object");
+mapObj.set(obj, "object"); //my new objects
 mapObj.set(1, "integer");
 mapObj.set(true, "boolean");
 mapObj.set([1, 2, 3], "array");
 mapObj.set(3.36, "float");
 mapObj.set("dog", "string");
 
+//console.log(mapObj.has({company : "TEKsystems"}));  //commenting out false statement, see my console.logs below for explanation.
 
-console.log(mapObj.has(obj));
-console.log("This statement is true because now they're the same object")
-    //The above console.log() statmeent returns false.  Write another console.log() statement explaining why this line of code prints false.  Refactor the code on line 106, so you can successfully check to see if {company : "TEKsystems"} exists in the mapObj.
+//The above console.log() statmeent returns false.  Write another console.log() statement explaining why this line of code prints false.  Refactor the code on line 106, so you can successfully check to see if {company : "TEKsystems"} exists in the mapObj.
 
 //your code...
+console.log(mapObj.has(obj)); //we are referencing an actual object now (see "const obj = ..." line above), not just a mapObj.
+console.log("This statement is true because now they're the same object. They exist in the same block of memory")
 
 //loop through the mapObj and create a new array of only the data types, leaving out the example keys of the mapObj.  Use array methods to do this.  Example output : ['string',number','boolean',array','object']
-mapObj.values() //can do same thing if I wanted to see the keys by adding keys
+mapObj.values() //can loop through the values with this simple command. Can replace "values()" with "keys()" if I only wanted to see the keys.
 
 /************************************************************* */
 //Problem 11:
 
 let ones = [1, 11, 111, 1111, 11111, 111111, 1111111, 11111111, 111111111, 1111111111];
 //reverse the array, without modifying the ones array.
-let onesTwo = []
-let rev = 0
+let onesTwo = [] //declare new array to put our reversed array in
+let rev = 0 //set reverse variable to zero
 
-for (i = ones.length - 1; i >= 0; i--) {
-    onesTwo[rev++] = ones[i];
+for (i = ones.length - 1; i >= 0; i--) { //create for loop iterating backwards by one for the length of the array
+    onesTwo[rev++] = ones[i]; //add the reversed array elements into the second array
 }
 
-console.log(onesTwo);
+console.log(onesTwo); //log the reversed array
 
 
 /************************************************************* */
@@ -170,9 +171,9 @@ console.log(onesTwo);
 
 function performer(cb) {
     //code goes here
-    return cb()
+    return cb() //returning the callback function inside the first-class function
 }
-performer(fn => ("Hello TEK")); //no "return" command necessary since no block "{}"
+performer(fn => ("Hello TEK")); // inside the performer function, create a function to add "Hello TEK" to the callback output. no "return" command necessary since no block "{}"
 
 
 
