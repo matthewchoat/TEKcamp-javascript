@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="timer.css">
-    <script src="timer-dom.js"></script>
-    <title>Document</title>
+
+    <title>Javascript Timer App</title>
 </head>
+
 <body>
-    <main id="timer">
-        <p>0:00</p>
-        <div class=timer-buttons>
-            <button>Start</button>
-            <button>Stop</button>
-            <button>Reset</button>
-        </div>
-    </main>
+    <div class=container>
+        <main id="timer">
+            <span id="min">00</span>:<span id="sec">00</span>
+            <div class=timer-buttons>
+                <input id="startBtn" type="button" value="Start">
+                <input id="stopBtn" type="button" value="Pause">
+                <input id="resetBtn" type="button" value="Reset">
+            </div>
+        </main>
+    </div>
+    <script src="timer-dom.js"></script>
 </body>
+
 </html>

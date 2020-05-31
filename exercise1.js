@@ -8,6 +8,24 @@
 //your code...
 
 
+function fahToCel(fah) //part 1
+{
+    var fahTemp = fah; //declaring input variable, current temperature in F
+    var fToC = ((fahTemp - 32) * 5 / 9); //formula for Fahreneheight to Celsius
+    var convertmsg = fahTemp + '\xB0 Fahrenheight is ' + fToC + '\xB0 Celsius.'; //setup output message using special character code for "degrees" symbol.
+    console.log(convertmsg); //Logging for trackable output
+}
+
+function celToFah(cel) //part 2
+{
+
+    var celTemp = cel; //declaring input variable, current temperature in C
+    var cToF = celTemp * 9 / 5 + 32; //formula for Celsius to Fahrenheight
+    var convertmsg = celTemp + '\xB0 Celsius is ' + cToF + ' \xB0 Fahrenheight.'; //setup output message using special character code for "degrees" symbol.
+    console.log(convertmsg); //Logging for trackable output
+}
+fahToCel(87); //Execute the function
+celToFah(22); //Execute the function
 
 
 
@@ -19,9 +37,23 @@
 //your code...
 
 
+function votingage(age) { //Define voting age function
+    if ((age >= 18) && (age < 80)) { //if scenario 1
+        var verifymsg = age + ', huh? ... Yes, looks like you are all set to vote!';
+        console.log(verifymsg);
+    }
 
+    if (age >= 80) { //if scenario 2
+        var oldmsg = age + ', huh? ... Yes, with old age comes wisdom, enjoy voting!';
+        console.log(oldmsg);
+    }
 
-
+    if (age <= 17) { //if scenario 3. No "else" statement required.
+        var denymsg = age + ', huh? ... No, not quite old enough yet. But I applaud your enthusiasm!';
+        console.log(denymsg);
+    }
+}
+votingage(16); //execute voting age function with age parameter
 
 
 /************************************************************* */
@@ -30,11 +62,15 @@
 
 //your code...
 
+function splitItJoinIt() { //Define string splitting and joining function
+    var ustring = 'The five boxing wizards jump quickly'; //define the input string
+    var stringArray = ustring.split(' '); // split string on space
+    console.log(stringArray); //output the split array
+    var joinedString = stringArray.join(' '); // join string on space
+    console.log(joinedString); //output the joined string
+}
 
-
-
-
-
+splitItJoinIt(); //execute split and join function
 
 /************************************************************* */
 // Problem 4:
@@ -42,8 +78,17 @@
 
 //your code...
 
+function phonenumreverse(digits) {
+    var digToString = digits.toString().split(''); // split number and convert to string
+    console.log(digToString); //output phone number in array for verification
+    var reverseArray = digToString.reverse(); //reverse array
+    console.log(reverseArray); //output reversed array for verification
+    var reversedNumber = reverseArray.join(''); // join reversed array into number
+    var outputMsg = 'Your reversed phone number is, ' + reversedNumber + '. Have a great day!'; //setup output message
+    console.log(outputMsg); //output reversed phone number
+}
 
-
+phonenumreverse(5556864444);
 
 
 /************************************************************* */
@@ -52,9 +97,16 @@
 
 //your code...
 
-
-
-
+function createCar() { //create car function
+    var car = { year: 0, color: "x", make: "x", model: "x" }; //define default car specs
+    var newCar = car; //initialize "newCar" object from "car" object
+    newCar.year = 2012; //define the year param
+    newCar.color = "Silver"; //define the color param.
+    newCar.make = "Lexus"; //define the make param.
+    newCar.model = "IS-250" //define the model param.
+    console.log(newCar); //output newCar specs to console
+}
+createCar(); //execute create car function
 
 
 /************************************************************* */
@@ -64,39 +116,92 @@
 
 //your code...
 
-
-
+function loopIt() { //declare function loopIt
+    for (numb = 0; numb < 16; numb++) { //start for loop with the 0-15 conditions, incrementing each loop
+        console.log(numb); //log each number in the loop
+        if (numb > 0 && numb % 2 === 0) { //if the num is greater than zero AND if 2 modulus the number absolutely equals zero
+            console.log('Even'); //log the number in this loop is Even
+        }
+        if (numb === 0) { //if the number does absolutely equal zero
+            console.log('N/A'); //log a "not applicable" message
+        }
+        if (numb % 2 != 0) { //if the number modulus 2 does not equal zero
+            console.log('Odd'); //log the number in this loop is Odd
+        }
+    }
+}
+loopIt(); // execute the function
 
 /************************************************************* */
 // Problem 7:
 // Write a JavaScript function that iterates the integers from 1 to 100. For multiples of 3 print "TEK" instead of the number and for multiples of 5, print "camp." For numbers that are multiples of both 3 and 5, print "TEKcamp."
 
 //your code...
+function TEKcamp() { //YAY!!
+    for (numb = 1; numb < 101; numb++) { // begin for loop at number 1 through 100, increment each loop
+        if (numb % 3 === 0 && numb % 5 != 0) { //if the number is divisible by 3 and NOT divisible by 5
+            console.log('TEK'); //print TEK
+        }
+        if (numb % 3 != 0 && numb % 5 === 0) { //if the number is not divisible by 3 and divisible by 5
+            console.log('camp'); //print Camp
+        }
+        if (numb % 3 === 0 && numb % 5 === 0) { //if the number is divisible by 3 and is also divisible by 5
+            console.log('TEKcamp'); //print TEKcamp
+        } else {
+            console.log(numb); //otherwise, just print the number
+        }
+    }
+}
+TEKcamp(); //Run that puppy!
 
 
 /************************************************************* */
 // Problem 8:
-const nums = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+const nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // Write a "for" loop that console.log()'s the first
 // value in the nums array, and every 3rd number, i.e. 0, 3, 6,
 // and 9: the zeroth, third, sixth, and ninth values.
 
 //your code...
 
-
+for (let i = 0; i < nums.length; i += 3) { //opens a for loop where i = 0 and iterates three values up each loop until the end of the length array
+    console.log(nums[i]); //console log the nums array with [i]
+}
 
 // Problem 9:
-const foodArray = [ 'potatoes', 'tamales', 'lemon','strawberries','chocolate', 'pudding', {school : 'TEKcamp'} ];
+const foodArray = ['potatoes', 'tamales', 'lemon', 'strawberries', 'chocolate', 'pudding', { school: 'TEKcamp' }];
 //access the value of the last element of the array and set it to a variable called school.  print the school variable to the console.
 
-const adjectiveArray = [ 'salty', 'spicy', 'sour', 'sweet', 'rich','creamy','amazing'];
+var last_item = foodArray[foodArray.length - 1]; //take the last item of an array as a variable
+
+console.log(last_item.school); //print last item in the list
+
+
+const adjectiveArray = ['salty', 'spicy', 'sour', 'sweet', 'rich', 'creamy', 'amazing'];
 // Using both the foodArray and the adjectiveArray, make a
 // "for" loop that console.log()'s a sentence for each
-// corresponding value in the arrays. Add the word "is" or "are" depending on if the food is singular or plural.  "Potatoes are salty", "Lemon is sour".
+// corresponding value in the arrays. Add the word "is" or "are" depending on if the food is singular or plural. "Potatoes are salty", "Lemon is sour".
+
+for (let index = 0; index < foodArray.length; index++) { //for loop through the entire length of the array (doesn't matter which one they both have the same length)
+    if (foodArray[index].school) { // if statement to catch the "school" property
+        console.log(foodArray[index].school + ' is ' + adjectiveArray[index]) //output school 'is' adjective
+
+    } else if (foodArray[index].endsWith('s')) { // else if to catch foodArray indexes that end in 's'.
+        console.log(foodArray[index] + ' are ' + adjectiveArray[index]) //output foodArray ' are ' adjective
+    } else { // else statement for remaining singular indexes
+        console.log(foodArray[index] + ' is ' + adjectiveArray[index]) //output foodArray ' is ' adjective
+    }
+}
+
+
 
 /************************************************************* */
 // Bonus Assignment: Create 4 mathematical function expressions, add,subtract,multiply,divide.  put them in an array, and create a doMath() function that randomly does one of the 4 operations whenever it is run.  the doMath() function should print out what mathetmatical function was carried out.  The doMath() function should return the computed value of any operation performed.
-const operations = [];
-function doMath() {};
+const operations = ["+", "-", "*", "/"]; //entered operators as strings
 
+function doMath() { //define doMath function
+    let expression = '2 ' + operations[Math.floor(Math.random() * Math.floor(3))] + ' 4' //setup expression subbing in a random operator (operator still a non-functional string)
+    console.log(expression + " = " + eval(expression)); //output the original expression with operator and also output the 'eval' expression result.
+};
 
+doMath() //call doMath function
